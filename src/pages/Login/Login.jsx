@@ -8,10 +8,11 @@ import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { imageUpload } from "../../api/utils";
 import { TbFidgetSpinner } from "react-icons/tb";
+import { getToken, saveUser } from "../../api/auth";
 
 const Login = () => {
   const [registers, setRegister] = useState(false);
-  const { googleSignup, createUser, login, updateUserProfile, loader } =
+  const { googleSignup, createUser, login, updateUserProfile, loader, logOut } =
     useAuth();
   const [errorLogin, setErrorLogin] = useState("");
   const navigate = useNavigate();
@@ -39,9 +40,13 @@ const Login = () => {
           data?.name,
           imageData?.data?.display_url
         );
+        const dbResponse = await saveUser(result?.user);
+        console.log(dbResponse);
+        const token = await getToken(result?.user?.email);
         toast.success("Your registration completed successfully", {
           id: toastId,
         });
+        logOut();
         navigate("/");
       }
     } catch (err) {
@@ -71,11 +76,18 @@ const Login = () => {
 
   // From Google Login || Registration
   const handleGoogleAuth = async () => {
-    const res = await googleSignup();
-    console.log(res?.user);
-    if (res?.user?.email) {
-      toast.success("You are logging in successfully");
-      navigate(from, { replace: true });
+    try {
+      const res = await googleSignup();
+      console.log(res?.user);
+      if (res?.user?.email) {
+        const dbResponse = await saveUser(res?.user);
+        console.log(dbResponse);
+        const token = await getToken(res?.user?.email);
+        toast.success("You are logging in successfully");
+        navigate(from, { replace: true });
+      }
+    } catch (err) {
+      toast.error(err.message);
     }
   };
 

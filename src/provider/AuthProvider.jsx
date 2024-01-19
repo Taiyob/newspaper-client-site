@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import { createContext, useEffect, useState } from "react";
+// import { getToken } from "../api/auth";
 
 const auth = getAuth(app);
 export const Authcontext = createContext();
@@ -36,6 +37,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const updateUserProfile = (name, photo) => {
+    setLoader(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -43,8 +45,17 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const subscribe = onAuthStateChanged(auth, (currentUser) => {
+    const subscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
+      // if (currentUser) {
+      //   const userInfo = { email: currentUser?.email };
+      //   const res = await getToken(userInfo);
+      //   if (res?.data?.token) {
+      //     setLoader(false);
+      //   }
+      // } else {
+      //   setLoader(false);
+      // }
       setLoader(false);
     });
     return () => {

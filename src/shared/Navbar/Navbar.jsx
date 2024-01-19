@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -66,6 +68,16 @@ const Navbar = () => {
                       Premium Articles
                     </NavLink>
                   </li>
+                  {user?.email && (
+                    <li className="relative border-l border-gray-800 hover:bg-gray-900">
+                      <NavLink
+                        onClick={() => logOut()}
+                        className="block py-3 px-6 border-b-2 border-transparent"
+                      >
+                        Logout
+                      </NavLink>
+                    </li>
+                  )}
                   <li className="relative border-l border-gray-800 hover:bg-gray-900">
                     <NavLink className="block py-3 px-6 border-b-2 border-transparent">
                       <div className="relative flex-shrink-0">
