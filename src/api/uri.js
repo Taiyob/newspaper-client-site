@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const axiosSecure = axios.create({
+const axiosPublic = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
 });
 
-export default axiosSecure;
+export default axiosPublic;

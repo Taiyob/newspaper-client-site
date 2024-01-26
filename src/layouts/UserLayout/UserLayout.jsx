@@ -6,7 +6,7 @@ const UserLayout = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="pt-24 min-h-[calc(100vh-395px)]">
+      <div className="min-h-[calc(100vh-395px)]">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>
