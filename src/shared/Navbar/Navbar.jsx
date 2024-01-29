@@ -24,9 +24,12 @@ const Navbar = () => {
         <nav className="bg-black">
           <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
             <div className="flex justify-between">
-              <div className="mx-w-10 text-2xl font-bold capitalize text-white flex items-center">
+              <NavLink
+                to="/"
+                className="mx-w-10 text-2xl font-bold capitalize text-white flex items-center"
+              >
                 Tailnews
-              </div>
+              </NavLink>
 
               <div className="flex flex-row">
                 <ul className="navbar hidden lg:flex lg:flex-row text-gray-400 text-sm items-center font-bold">
@@ -39,32 +42,50 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <li className="relative border-l border-gray-800 hover:bg-gray-900">
-                    <NavLink className="block py-3 px-6 border-b-2 border-transparent">
+                    <NavLink
+                      to="/add-articles"
+                      className="block py-3 px-6 border-b-2 border-transparent"
+                    >
                       Add Articles
                     </NavLink>
                   </li>
                   <li className="relative border-l border-gray-800 hover:bg-gray-900">
-                    <NavLink className="block py-3 px-6 border-b-2 border-transparent">
+                    <NavLink
+                      to="/all-articles"
+                      className="block py-3 px-6 border-b-2 border-transparent"
+                    >
                       All Articles
                     </NavLink>
                   </li>
                   <li className="relative border-l border-gray-800 hover:bg-gray-900">
-                    <NavLink className="block py-3 px-6 border-b-2 border-transparent">
+                    <NavLink
+                      to="/subscription"
+                      className="block py-3 px-6 border-b-2 border-transparent"
+                    >
                       Subscription
                     </NavLink>
                   </li>
                   <li className="relative border-l border-gray-800 hover:bg-gray-900">
-                    <NavLink className="block py-3 px-6 border-b-2 border-transparent">
+                    <NavLink
+                      to="/dashboard"
+                      className="block py-3 px-6 border-b-2 border-transparent"
+                    >
                       Dashboard
                     </NavLink>
                   </li>
                   <li className="relative border-l border-gray-800 hover:bg-gray-900">
-                    <NavLink className="block py-3 px-6 border-b-2 border-transparent">
+                    <NavLink
+                      to="/my-article"
+                      className="block py-3 px-6 border-b-2 border-transparent"
+                    >
                       My Articles
                     </NavLink>
                   </li>
                   <li className="relative border-l border-gray-800 hover:bg-gray-900">
-                    <NavLink className="block py-3 px-6 border-b-2 border-transparent">
+                    <NavLink
+                      to="/premium-articles"
+                      className="block py-3 px-6 border-b-2 border-transparent"
+                    >
                       Premium Articles
                     </NavLink>
                   </li>

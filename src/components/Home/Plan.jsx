@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Plan = () => {
   return (
     <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
@@ -12,7 +14,7 @@ const Plan = () => {
             </h2>
           </div>
           <div className="flex flex-wrap items-stretch -mx-4">
-            <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
+            <Link to='/subscription' className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
               <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow-lg sm:p-8 dark:bg-gray-900 transition duration-300 hover:bg-violet-400">
                 <div className="space-y-2">
                   <h4 className="text-2xl font-bold">Beginner</h4>
@@ -75,8 +77,8 @@ const Plan = () => {
                   Get Started
                 </button>
               </div>
-            </div>
-            <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
+            </Link>
+            <Link to='/subscription' className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
               <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow-lg sm:p-8 dark:bg-violet-400 dark:text-gray-900 transition duration-300 hover:bg-violet-400">
                 <div className="space-y-2">
                   <h4 className="text-2xl font-bold">Pro</h4>
@@ -158,8 +160,8 @@ const Plan = () => {
                   Get Started
                 </a>
               </div>
-            </div>
-            <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
+            </Link>
+            <Link to='/subscription' className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
               <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow-lg sm:p-8 dark:bg-gray-900 transition duration-300 hover:bg-violet-400">
                 <div className="space-y-2">
                   <h4 className="text-2xl font-bold">Team</h4>
@@ -256,7 +258,7 @@ const Plan = () => {
                   Get Started
                 </a>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
