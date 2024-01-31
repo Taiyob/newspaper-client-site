@@ -18,6 +18,8 @@ const Navbar = () => {
     isMobileMenuOpen ? "visible" : "invisible"
   }`;
 
+  const profileImage = user?.display_url;
+
   return (
     <div>
       <header className="fixed top-0 left-0 right-0 z-50">
@@ -89,7 +91,7 @@ const Navbar = () => {
                       Premium Articles
                     </NavLink>
                   </li>
-                  {user?.email && (
+                  {user?.email ? (
                     <li className="relative border-l border-gray-800 hover:bg-gray-900">
                       <NavLink
                         onClick={() => logOut()}
@@ -98,19 +100,43 @@ const Navbar = () => {
                         Logout
                       </NavLink>
                     </li>
+                  ) : (
+                    <li className="relative border-l border-gray-800 hover:bg-gray-900">
+                      <NavLink
+                        to="/login"
+                        className="block py-3 px-6 border-b-2 border-transparent"
+                      >
+                        Login
+                      </NavLink>
+                    </li>
                   )}
-                  <li className="relative border-l border-gray-800 hover:bg-gray-900">
-                    <NavLink className="block py-3 px-6 border-b-2 border-transparent">
-                      <div className="relative flex-shrink-0">
-                        <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
-                        <img
-                          src="https://source.unsplash.com/50x50/?portrait"
-                          alt=""
-                          className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                        />
-                      </div>
-                    </NavLink>
-                  </li>
+                  {user?.email ? (
+                    <li className="relative border-l border-gray-800 hover:bg-gray-900">
+                      <NavLink className="block py-3 px-6 border-b-2 border-transparent">
+                        <div className="relative flex-shrink-0">
+                          <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
+                          <img
+                            src={profileImage}
+                            alt=""
+                            className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          />
+                        </div>
+                      </NavLink>
+                    </li>
+                  ) : (
+                    <li className="relative border-l border-gray-800 hover:bg-gray-900">
+                      <NavLink className="block py-3 px-6 border-b-2 border-transparent">
+                        <div className="relative flex-shrink-0">
+                          <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 dark:border-gray-900"></span>
+                          <img
+                            src="https://source.unsplash.com/50x50/?portrait"
+                            alt=""
+                            className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                          />
+                        </div>
+                      </NavLink>
+                    </li>
+                  )}
                 </ul>
 
                 <div className="flex flex-row items-center text-gray-300">

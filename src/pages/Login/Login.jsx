@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { imageUpload } from "../../api/utils";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { getToken, saveUser } from "../../api/auth";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [registers, setRegister] = useState(false);
@@ -47,7 +48,7 @@ const Login = () => {
           id: toastId,
         });
         logOut();
-        navigate("/");
+        navigate("/login");
       }
     } catch (err) {
       console.log(err.message);
@@ -93,6 +94,9 @@ const Login = () => {
 
   return (
     <div className="flex px-20 justify-center items-center">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="flex-1   w-full mx-auto lg:w-[800px] bg-white flex items-center group relative overflow-hidden shadow-xl">
         <form
           onSubmit={handleSubmit(onSubmit)}

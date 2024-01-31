@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useArticle from "../../hooks/useArticle";
+import { Helmet } from "react-helmet-async";
 
 const AllArticles = () => {
   const { data, isLoading } = useArticle();
@@ -17,6 +18,9 @@ const AllArticles = () => {
   }
   return (
     <div className="mt-20">
+      <Helmet>
+        <title>All || Articles</title>
+      </Helmet>
       {!isLoading &&
         approvedArticle.map((articleCard) => (
           <div

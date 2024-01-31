@@ -13,6 +13,9 @@ import PremiumArticle from "../pages/PremiumArticle/PremiumArticle";
 import ForApproveArticle from "../components/DashBoard/Admin/ForApproveArticle";
 import Dashboard from "../pages/DashBoard/Dashboard";
 import ArticleDetails from "../components/Articles/ArticleDetails";
+import Payment from "../pages/Payment/Payment";
+import PaymentHistory from "../pages/PaymentHistory/PaymentHistory";
+import PrivateRoute from "./PrivateRoute";
 
 const route = createBrowserRouter([
   {
@@ -26,27 +29,67 @@ const route = createBrowserRouter([
       },
       {
         path: "/add-articles",
-        element: <AddArticles></AddArticles>,
+        element: (
+          <PrivateRoute>
+            <AddArticles></AddArticles>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/all-articles",
-        element: <AllArticles></AllArticles>,
+        element: (
+          <PrivateRoute>
+            <AllArticles></AllArticles>
+          </PrivateRoute>
+        ),
       },
       {
         path: `/article/details/:name/:id`,
-        element: <ArticleDetails></ArticleDetails>,
+        element: (
+          <PrivateRoute>
+            <ArticleDetails></ArticleDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/subscription",
-        element: <Subscription></Subscription>,
+        element: (
+          <PrivateRoute>
+            <Subscription></Subscription>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/subscription/payment/:price",
+        element: (
+          <PrivateRoute>
+            <Payment></Payment>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/payment/history",
+        element: (
+          <PrivateRoute>
+            <PaymentHistory></PaymentHistory>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-article",
-        element: <MyArticle></MyArticle>,
+        element: (
+          <PrivateRoute>
+            <MyArticle></MyArticle>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/premium-articles",
-        element: <PremiumArticle></PremiumArticle>,
+        element: (
+          <PrivateRoute>
+            <PremiumArticle></PremiumArticle>
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -56,19 +99,35 @@ const route = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard/slider-data",
-        element: <SliderData></SliderData>,
+        element: (
+          <PrivateRoute>
+            <SliderData></SliderData>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/add-publisher",
-        element: <AllPublisherData></AllPublisherData>,
+        element: (
+          <PrivateRoute>
+            <AllPublisherData></AllPublisherData>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/approve-article",
-        element: <ForApproveArticle></ForApproveArticle>,
+        element: (
+          <PrivateRoute>
+            <ForApproveArticle></ForApproveArticle>
+          </PrivateRoute>
+        ),
       },
     ],
   },

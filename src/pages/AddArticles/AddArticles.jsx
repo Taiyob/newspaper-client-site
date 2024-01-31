@@ -4,6 +4,7 @@ import usePublisher from "../../hooks/usePublisher";
 import { imageUpload } from "../../api/utils";
 import axiosPublic from "../../api/uri";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddArticles = () => {
   const { data, isLoading } = usePublisher();
@@ -49,6 +50,9 @@ const AddArticles = () => {
   };
   return (
     <div className="flex items-center justify-center">
+      <Helmet>
+        <title>Add || Article</title>
+      </Helmet>
       <section className="bg-white dark:bg-gray-900 mt-10 flex-1">
         <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
           <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">

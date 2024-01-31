@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
     <div className="max-w-screen-3xl mx-auto p-5 sm:p-10 md:p-16 grid grid-cols-12">
+      <Helmet>
+        <title>Dashboard</title>
+      </Helmet>
       <aside className="w-full p-6 sm:w-60 dark:bg-gray-900 dark:text-gray-100 col-span-2">
         <nav className="space-y-8 text-sm">
           <div className="space-y-2">
