@@ -254,7 +254,7 @@ const Navbar = () => {
 
                 <li className="relative">
                   <NavLink className="block py-2 px-5 border-b border-gray-100 hover:bg-gray-50">
-                    More
+                    Login
                   </NavLink>
                 </li>
               </ul>
